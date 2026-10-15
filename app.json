@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Suraksha",
+    "slug": "suraksha-safety",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "com.suraksha.safety",
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION", "RECORD_AUDIO"]
+    },
+    "plugins": [
+      ["expo-location", {
+        "locationWhenInUsePermission": "Suraksha uses your location for SOS alerts, journeys, and nearby emergency services."
+      }],
+      ["expo-speech-recognition", {
+        "microphonePermission": "Suraksha uses the microphone for optional voice-activated SOS.",
+        "speechRecognitionPermission": "Suraksha listens for your chosen SOS phrase while the app is open."
+      }],
+      "expo-secure-store"
+    ]
+  }
+}
