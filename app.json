@@ -7,17 +7,38 @@
     "userInterfaceStyle": "light",
     "android": {
       "package": "com.suraksha.safety",
-      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION", "RECORD_AUDIO"]
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "RECORD_AUDIO",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "plugins": [
-      ["expo-location", {
-        "locationWhenInUsePermission": "Suraksha uses your location for SOS alerts, journeys, and nearby emergency services."
-      }],
-      ["expo-speech-recognition", {
-        "microphonePermission": "Suraksha uses the microphone for optional voice-activated SOS.",
-        "speechRecognitionPermission": "Suraksha listens for your chosen SOS phrase while the app is open."
-      }],
-      "expo-secure-store"
-    ]
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Suraksha uses your location for SOS alerts, journeys, and nearby emergency services."
+        }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Suraksha uses the microphone for optional voice-activated SOS.",
+          "speechRecognitionPermission": "Suraksha listens for your chosen SOS phrase while the app is open."
+        }
+      ],
+      "expo-secure-store",
+      "expo-audio",
+      "expo-asset",
+      "expo-notifications"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "bb9a88c9-66f6-4467-b288-ec4abd95c7a6"
+      }
+    }
   }
 }

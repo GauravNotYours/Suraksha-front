@@ -34,6 +34,14 @@ export async function request<T>(path: string, options: {
   return data as T;
 }
 
+export async function requestArray<T>(path: string, options: {
+  method?: string; body?: unknown; auth?: boolean;
+} = {}): Promise<T[]> {
+  const data = await request<unknown>(path, options);
+  if (!Array.isArray(data)) throw new Error(`Unexpected server response for ${path}: expected a list.`);
+  return data as T[];
+}
+
 export interface User {
   id: string; name: string; email: string; phone: string; bloodType?: string; medicalNotes?: string;
 }
@@ -51,4 +59,10 @@ export interface Journey {
   checkInIntervalMinutes: number; escalationLevel: number; trustedContact?: Contact;
   checkInsCompleted?: number; expectedArrivalAt: string;
 }
-export interface Emergency { _id: string; status: string; coordinates?: Point; activatedAt: string; shareUrl?: string }
+export interface AlertDelivery {
+  name: string; status: string; channel?: 'PUSH' | 'SMS'; providerStatus?: string; error?: string;
+}
+export interface Emergency {
+  _id: string; status: string; coordinates?: Point; activatedAt: string; shareUrl?: string;
+  contactsNotified?: AlertDelivery[];
+}
